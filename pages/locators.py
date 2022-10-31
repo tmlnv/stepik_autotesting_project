@@ -8,6 +8,7 @@ class BasePageLocators():
 
 class MainPageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    BASKET_BUTTON = (By.CSS_SELECTOR, '[href="/en-gb/basket/"]')
 
 
 class LoginPageLocators:
@@ -27,3 +28,8 @@ class ProductPageLocators:
     MESSAGE_BASKET_TOTAL = (By.CSS_SELECTOR, ".alert-info .alertinner strong")
     PRODUCT_PRICE = (By.CSS_SELECTOR, ".product_main .price_color")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success")
+
+
+class CartPageLocators:
+    CONTINUE_SHOPPING_BUTTON = (By.CSS_SELECTOR, '[href="/en-gb/"]')
+    ORDER_TOTAL = (By.CLASS_NAME, 'total')
