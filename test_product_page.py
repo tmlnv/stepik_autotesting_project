@@ -21,3 +21,30 @@ def test_add_to_cart(browser, offer_num):
     product_price = page.should_be_message_basket_total(locator1=ProductPageLocators.MESSAGE_BASKET_TOTAL,
                                                         locator2=ProductPageLocators.PRODUCT_PRICE)[1]
     assert product_price == message_basket_total
+
+
+@pytest.mark.xfail
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207'
+    page = ProductPage(browser, link)
+    page.open()
+    page.add_to_cart(locator=ProductPageLocators.ADD_TO_CART_BUTTON)
+    page.solve_quiz_and_get_code()
+    assert page.is_not_element_present(locator=ProductPageLocators.SUCCESS_MESSAGE)
+
+
+def test_guest_cant_see_success_message(browser):
+    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207'
+    page = ProductPage(browser, link)
+    page.open()
+    assert page.is_not_element_present(locator=ProductPageLocators.SUCCESS_MESSAGE)
+
+
+@pytest.mark.xfail
+def test_message_disappeared_after_adding_product_to_basket(browser):
+    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207'
+    page = ProductPage(browser, link)
+    page.open()
+    page.add_to_cart(locator=ProductPageLocators.ADD_TO_CART_BUTTON)
+
+    assert page.is_disappeared(locator=ProductPageLocators.SUCCESS_MESSAGE)
