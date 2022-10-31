@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class ProductPage(BasePage):
 
-    def add_to_cart(self, locator):
+    def add_to_basket(self, locator):
         self.click(locator)
 
     def should_be_message_about_adding(self, locator1, locator2):
