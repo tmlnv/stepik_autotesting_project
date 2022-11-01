@@ -1,5 +1,4 @@
 from .pages.main_page import MainPage
-from .pages.locators import MainPageLocators, BasketPageLocators
 from .pages.basket_page import BasketPage
 import pytest
 
@@ -23,8 +22,8 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     link = "http://selenium1py.pythonanywhere.com/"
     page = MainPage(browser, link)
     page.open()
-    page.click(MainPageLocators.BASKET_BUTTON)
+    page.click_on_basket()
     basket_page = BasketPage(browser, link)
-    assert basket_page.check_no_items_in_basket(locator=BasketPageLocators.CONTINUE_SHOPPING_BUTTON)
-    assert 'Your basket is empty' in browser.page_source
-    assert not basket_page.check_items_in_basket(locator=BasketPageLocators.ORDER_TOTAL)
+    basket_page.check_no_items_in_basket()
+    basket_page.check_empty_basket_text()
+    basket_page.should_not_be_items_in_basket()

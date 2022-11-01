@@ -20,6 +20,7 @@ class LoginPageLocators:
     REGISTER_PASSWORD1 = (By.CSS_SELECTOR, "[name='registration-password1']")
     REGISTER_PASSWORD2 = (By.CSS_SELECTOR, "[name='registration-password2']")
     REGISTER_BUTTON = (By.CSS_SELECTOR, "[name='registration_submit']")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
 class ProductPageLocators:
@@ -34,4 +35,3 @@ class ProductPageLocators:
 class BasketPageLocators:
     CONTINUE_SHOPPING_BUTTON = (By.CSS_SELECTOR, '[href="/en-gb/"]')
     ORDER_TOTAL = (By.CLASS_NAME, 'total')
-    USER_ICON = (By.CSS_SELECTOR, ".icon-user")

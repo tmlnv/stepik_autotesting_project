@@ -36,3 +36,6 @@ class LoginPage(BasePage):
         reg_password2.send_keys(password)
         reg_button = self.browser.find_element(*LoginPageLocators.REGISTER_BUTTON)
         reg_button.click()
+
+    def check_user_icon_appeared(self):
+        assert self.browser.find_element(*LoginPageLocators.USER_ICON)
